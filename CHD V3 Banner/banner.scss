@@ -12,7 +12,7 @@
     text-align: left;
     position: absolute;
     top: 35%; /* Adjust for vertical alignment */
-    left: 9%;
+    left: 12%; /* Adjust to align with tiles */
     transform: translateY(-50%);
     color: white;
     font-family: 'Lato', sans-serif;
@@ -20,14 +20,18 @@
 }
 
 .hero-text h1 {
-    font-size: 2.3em; /* Reduced font size slightly */
+    font-size: 2.em; /* Reduced font size slightly */
     margin-bottom: 0.5em;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Drop shadow for text */
 }
 
 .hero-text h1 .light-text {
     font-weight: 200; /* Lighter font weight */
-    opacity: 0.8; /* Slightly lighter appearance */
+    opacity: 2; /* Slightly lighter appearance */
+}
+.hero-text h1 .l-text {
+    font-weight: 400; /* Lighter font weight */
+    opacity: 1; /* Slightly lighter appearance */
 }
 
 .service-now-banner {
