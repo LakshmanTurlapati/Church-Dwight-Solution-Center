@@ -1,0 +1,229 @@
+.btn-group.attachment-mobile > button {
+    padding: 1px 6px;
+  }
+  
+  .panel-button {
+    float: none;
+  }
+  
+  .sp-attachment-add {
+    padding: 5px;
+  }
+  
+  .p-t-none {
+    padding-top: 0 !important;
+  }
+  
+  .file-list-wrap {
+      margin-bottom: 10px;
+  }
+  
+  .sc-btn {
+    color: $text-color;
+    margin-top: 15px; /* Give space between the button and the alert */
+  }
+  
+  .dismiss-button {
+    position: absolute;
+    top: 1rem;
+      right: 10px;
+      color: $text-color;
+      cursor: pointer;
+  }
+  
+  .item-header {
+    padding-top: 10px !important;
+    padding-bottom: 10px !important;
+  }
+  .panel {
+      border-radius: 15px; /* Apply border-radius to the main content panel */
+      box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1); /* Add the same shadow for depth */
+    overflow: hidden; /* Ensures the panel respects the border-radius */
+    }
+  
+  .sc-item-description img {
+    max-width: 100%;
+    height: auto;
+  }
+  .sc-sticky-item-header {
+    position: sticky;
+    position: -webkit-sticky;
+    position: -ms-sticky;
+    top: -($font-size-h2 + $font-size-base);
+    z-index: 10;
+    background-color: $sp-homepage-bg;
+    border-radius: 4px 4px 0 0;
+  }
+  .sc-fixed {
+      position: relative; /* Changed from fixed to relative */
+      max-height: 100%;
+      width: 100%; /* Adjust width to make sure content fits */
+      border-radius: 15px; /* Add border-radius for smoother corners */
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1); /* Add subtle shadow for depth */
+      overflow: hidden; /* Prevents any content inside from breaking the border-radius */
+  
+    }
+  .no-margin {
+      margin: 0px; 
+  }
+  .sc-item-error-messages {
+    
+      position: relative; /* Remove absolute to stop it from overlapping */
+      margin-bottom: 10px; /* Add spacing between the alert and the button */
+      width: 100%; /* Ensures it stretches the full container width */
+      padding: 5px; /* Add padding to give it more room */
+      border-radius: 10px; /* Smaller border-radius for error messages */
+    }
+  
+  
+    .sc-field-error-label {
+      margin-right: .5em; 
+      display: inline-block;
+      cursor: pointer;
+      background-color: #D9534F; /* Ensure the error label color stands out */
+      text-overflow: ellipsis;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+  .image-gallery {
+    font-size: 8px;
+    color: #CECECE;
+    .active {
+      color: #717171;
+    }
+    i {
+      padding: 0 5px;
+    }
+  }
+  .relative {
+    position: relative;
+  }
+  .sc-order-widget-btn {
+     position: absolute;
+     left: 9%;
+  }
+  .quantity-full-width {
+    margin-top: 5px;
+      width: 100%;
+  }
+  
+  .quantity-selector {
+      display: flex;
+      width: 100%;
+      align-items: center;
+  }
+  
+  .quantity-selector input {
+      text-align: center;
+      margin: 0 5px;
+      flex-grow: 1;  /* Make the input field take up available space */
+  }
+  
+  .quantity-btn {
+      width: 50px;  /* Make buttons take the same width */
+      background-color: #f1f1f1;
+      border: 1px solid #ccc;
+      padding: 6px 10px;
+      cursor: pointer;
+      border-radius: 4px;
+  }
+  
+  .quantity-btn:disabled {
+      cursor: not-allowed;
+      opacity: 0.5;
+  }
+  
+  .quantity-input {
+      border-radius: 4px;
+      border: 1px solid #ccc;
+      padding: 6px;
+  }
+  
+  .quantity-selector button:hover {
+      background-color: #e2e2e2;
+  }
+  
+  .quantity-selector input[type="number"]::-webkit-inner-spin-button, 
+  .quantity-selector input[type="number"]::-webkit-outer-spin-button { 
+      -webkit-appearance: none; 
+      margin: 0; 
+  }
+  
+  .close-notification {
+        position: absolute;
+        top: 10px;
+        right: 18px;
+  }
+  .help-tag-icon {
+        color: $sc-field-error-color;
+  }
+  .b-b {
+      border-bottom: none !important;
+  }
+  @media only screen and (max-width : 992px) {
+    .sc-fixed {
+      position: relative;
+      width: 100%;
+    }
+    .wishlist-update-message {
+      display : block;
+    }
+    .sc-item-error-messages {
+      position: relative;
+    }
+    .read-more, .read-less {
+      font-size: 15px;
+      cursor: pointer;
+    }
+    .more-text {
+      display: none;
+    }
+    .inline-cart {
+      display: none;
+    }
+    .right-side-cart {
+      display: inherit !important;
+    }
+  }
+  @media only screen and (max-width : 768px) {
+    .sc-sticky-item-header {
+       position: inherit;
+    }
+    
+  }
+  .inline-cart {
+    .quantity-selector {
+      display: inline-block;
+      width: 65px;
+      padding-top: 2px;
+    }
+  }
+  .alert-success .link {
+      text-decoration: underline;
+  }
+  
+  .alert-info-border {
+      border-color: $alert-info-border;
+  }
+  
+  .native-mobile {
+        .panel {
+            border-left: 0;
+            border-right: 0;
+      }
+  }
+  
+  .flex-center {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+  }
+  
+  .flex-end {
+        display: flex;
+        justify-content: flex-end;
+  }
+  
+  .attachment-height {
+            height: 80px;
+  }

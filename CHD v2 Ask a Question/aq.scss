@@ -1,0 +1,56 @@
+.suggested-question-container {
+    max-height: 150px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    margin-bottom: 10px;
+}
+
+.suggested-question-container > .question-summary {
+    padding: 3px;
+}
+
+.hide-element {
+    visibility: hidden;
+}
+
+.custom-submit-btn {
+    border-radius: 9px;
+    background-color: #012444;
+    border-color: #012444;
+    color: white;
+    transition: background-color 0.3s, border-color 0.3s; /* For smooth hover effect */
+}
+
+.custom-submit-btn:hover {
+    background-color: #014488; /* Change to a slightly different shade on hover */
+    border-color: #014488;
+    color: white; /* Ensure the text color remains white */
+}
+
+.custom-submit-btn:disabled {
+    background-color: #cccccc;
+    border-color: #cccccc;
+}
+
+.panel-heading.custom-heading {
+    background-color: #BA0C2F;
+    color: white;
+    border-color: #BA0C2F; /* Ensure the border matches the background */
+    padding-top: 8px;
+    padding-bottom: 8px; /* Adjust padding to reduce height */
+}
+
+.panel-heading.custom-heading h2,
+.panel-heading.custom-heading .panel-title {
+    color: white; /* Ensure the text within the heading is white */
+    margin: 0; /* Remove any default margin */
+    font-size: 16px; /* Optional: Adjust font size if needed */
+}
+
+.panel-footer.custom-footer {
+    background-image: url('https://images.unsplash.com/photo-1517816428104-797678c7cf0c?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+    background-size: cover; /* Ensures the image covers the entire background */
+    background-position: center; /* Centers the image */
+    background-repeat: no-repeat; /* Prevents the image from repeating */
+    padding: 10px; /* Adjust padding as needed */
+}

@@ -1,0 +1,75 @@
+<section aria-label="${Service Catalog categories}">
+    <div ng-if="c.data.catalogSelectorArr.length > 2" class="panel panel-{{::options.color}} category-widget no-border">
+      
+      <!-- Unified Panel Heading -->
+      <div class="panel-primary panel-heading">
+        <h2 class="h4 panel-title">{{::data.messages.catalogTitle}}</h2>
+      </div>
+      
+      <!-- Catalog Dropdown Selector -->
+      <ul class="list-group category-list" id="catalog_title" data-label="Catalogs" aria-label="{{::data.messages.catalogTitle}}">
+        <li class="list-group-item text-overflow-ellipsis" ng-include="'catalog-template.html'"></li>
+      </ul>
+      
+      <!-- Category List with Increased Scroll Height -->
+      <ul class="list-group category-list" role="tree" data-label="Catalog filters" aria-label="{{::options.title}}" style="max-height: 600px; overflow-y: auto;">
+        <li role="{{category.subcategories.length > 0 ? 'treeitem' : 'none'}}" 
+            class="list-group-item text-overflow-ellipsis" 
+            ng-if="category.totalCount > 0" 
+            ng-include="'category-template.html'"
+            ng-repeat="category in data.visibleCategoriesList track by category.sys_id"> 
+        </li>
+      </ul>
+      
+      <!-- Reintroduced Footer -->
+      <div class="panel-footer text-center" style="background-color: #BA0C2F; color: white;">
+        <div class="text-muted">{{data.more_msg}}</div>
+      </div>
+    </div>
+  
+    <!-- Catalog Template -->
+    <script type="text/ng-template" id="catalog-template.html">
+      <select class="sc-basic-select" aria-label="{{::data.messages.catalogTitle}}" ng-change="changeCatalog(selectedCatalog)" ng-model="selectedCatalog" ng-options="catalog.displayValue for catalog in c.data.catalogSelectorArr track by catalog.value"></select>
+    </script>
+  
+    <!-- Category Template -->
+    <script type="text/ng-template" id="category-template.html">
+      <div ng-click="categorySelected($event, category)"
+        ng-keydown="handleKeyPressOnCategory($event, category)"
+        sn-focus="category.sys_id == data.categoryId"
+        ng-enabled="category.totalCount > 0"
+        role="treeitem" 
+        aria-current="{{category.sys_id == data.categoryId}}"
+        ng-class="{true: 'text-active', false: ''}[category.sys_id == data.categoryId]"
+        tabindex="{{category.isFirstCategory ? '0' : '-1'}}"
+        class="group-item group-item-primary pointer" 
+        data-ng-attr-style="padding-left:{{getCategoryPadding(category.level + 1)}}"
+        title="{{::category.title}} {{::category.catalog_tooltip}}"
+        data-toggle="{{!isTouchDevice() ? 'tooltip' : undefined}}"
+        data-placement="top"
+        data-ng-attr-aria-label="{{getCategoryAriaLabel(category)}}"
+        ng-attr-aria-expanded="{{category.subcategories.length > 0 && category.totalCount > category.count ? category.showChildren : undefined}}">
+        
+        <div role="none">
+          <i ng-if="::category.subcategories.length > 0 && category.totalCount > category.count" 
+            class="l-h-1_6x pull-left fa collapse-icon" 
+            data-toggle="tooltip"
+            data-placement="right"
+            data-original-title="{{category.showChildren ? data.messages.collapse : data.messages.expand}}"
+            ng-class="{true: 'fa-minus-square-o', false: 'fa-plus-square-o'}[category.showChildren]"
+            ng-click="displayChildren($event, category)">
+          </i>
+          <span class="badge pull-right pointer" ng-if="options.omit_badges != 'true'">{{::category.totalCount}}</span>
+          <span class="block text-overflow-ellipsis category">{{::category.title}}</span>
+        </div>
+      </div>
+      
+      <ul class="list-group sub-category-list" role="group" ng-if="category.showChildren && category.subcategories.length > 0">
+        <li role="{{category.subcategories.length > 0 ? 'treeitem': 'none'}}" 
+            class="list-group-item text-overflow-ellipsis" 
+            ng-include="'category-template.html'" 
+            ng-repeat="category in category.subcategories track by category.sys_id">
+        </li>
+      </ul>
+    </script>
+  </section>

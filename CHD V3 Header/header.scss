@@ -1,0 +1,1102 @@
+/* General Styles */
+@mixin -link-hover {
+  cursor: pointer;
+  background-color: darken($navbar-inverse-bg, 5%);
+  border-radius: $border-radius-base;
+  color: $navbar-inverse-link-hover-color;
+}
+
+@mixin -link-focus {
+  outline: 1.5px solid $navbar-inverse-link-color;
+  border: none;
+  border-radius: $border-radius-base;
+  box-shadow: inset 0 0 0 0.1rem #fff;
+  background-color: darken($navbar-inverse-bg, 10%);
+  color: $navbar-inverse-link-hover-color;
+}
+
+@mixin -focus-visible-mouse-ua {
+  border: none;
+  outline: none;
+  box-shadow: none;
+}
+
+@mixin -focus-visible-keyboard-ua {
+  outline: 1.5px solid $navbar-inverse-link-color;
+  border: none;
+  border-radius: $border-radius-base;
+  box-shadow: inset 0 0 0 0.1rem #fff;
+}
+
+.navbar-inverse {
+  margin-bottom: 0;
+  border-radius: 0;
+  background-color: $navbar-inverse-bg;
+  padding: 0 5em; /* Add padding on both left and right */
+
+
+  .navbar-header {
+    &.nav-container {
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .sub-navbar-overflow-entry-button {
+      position: relative;
+      float: right;
+      margin: 1.3rem 1.5rem 1.3rem 0;
+      padding: .9rem 1rem;
+      background-color: transparent;
+      border: .1rem solid transparent;
+      border-radius: .4rem;
+      border-color: rgba(255, 255, 255, .25);
+
+      .label {
+        float: right;
+        margin-right: -.5rem;
+        margin-top: -.7rem;
+        padding: .2em .5em .2em;
+      }
+
+      .label-as-badge {
+        font-size: 1.2rem;
+        position: relative;
+        top: -$sp-space--xxs;
+        left: $sp-space--xxs;
+        padding: $sp-space--xxs 5px;
+        margin-left: 0;
+        background-color: $btn-danger-bg;
+        color: $text-white;
+      }
+
+      .icon-bar {
+        display: block;
+        width: 2.2rem;
+        height: .2rem;
+        border-radius: .1rem;
+        background-color: #fff;
+      }
+
+      .icon-bar + .icon-bar {
+        margin-top: .4rem;
+      }
+
+      &.close-icon-visible {
+        margin-bottom: 0;
+        padding: 0.6rem 1rem;
+      }
+
+      .fa.fa-close {
+        vertical-align: -6%;
+        font-size: 20px;
+        width: 22px;
+        color: $navbar-inverse-link-color;
+      }
+    }
+
+    .gt-menu-item > a,
+    .gt-menu-item > div > ul > li > a,
+    .navbar-nav > li > a {
+      &:hover {
+        @include -link-hover;
+      }
+
+      &:focus {
+        @include -link-focus;
+      }
+
+      &:focus:not(:focus-visible) {
+        @include -focus-visible-mouse-ua;
+      }
+
+      &:focus-visible {
+        @include -focus-visible-keyboard-ua;
+      }
+    }
+
+    .mobile-view-on-desktop {
+      top: 60px;
+      position: absolute;
+      right: 0;
+      z-index: 999;
+      min-height: 600px;
+      max-width: 400px;
+      background-color: $navbar-inverse-bg;
+      box-shadow: 5px 5px 5px $navbar-inverse-link-color;
+      color: $navbar-inverse-link-color;
+
+      .mobile-view-navbar {
+        list-style: none;
+        padding: 0 8px;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        border-top: 1px solid darken($navbar-inverse-link-color, 45%);
+
+        .main-header-items {
+          padding-inline-start: 0.4rem !important;
+          padding-inline-end: 0.4rem !important;
+          list-style: none;
+          padding-top: 11px;
+          margin: 0;
+          display: flex;
+          flex-direction: column;
+
+          & > li > div > ul {
+            width: 100%;
+
+            & > li {
+              width: 100%;
+
+              & > a > span {
+                &:hover {
+                  @include -link-hover;
+                }
+
+                &:focus {
+                  @include -link-focus;
+                }
+
+                &:focus:not(:focus-visible) {
+                  @include -focus-visible-mouse-ua;
+                }
+
+                &:focus-visible {
+                  @include -focus-visible-keyboard-ua;
+                }
+              }
+            }
+          }
+
+          & > li > a, & > ul > li > a {
+            display: block;
+            padding: $sp-space--md;
+
+            &:hover {
+              @include -link-hover;
+
+              & > a {
+                color: $navbar-inverse-link-hover-color;
+              }
+            }
+
+            &:focus {
+              @include -link-focus;
+            }
+
+            &:focus:not(:focus-visible) {
+              @include -focus-visible-mouse-ua;
+            }
+
+            &:focus-visible {
+              @include -focus-visible-keyboard-ua;
+            }
+
+            // Cart, tours, and Wishlist (Mobile View)
+            .nav.navbar-nav {
+              display: flex;
+              flex-direction: column;
+            }
+          }
+        }
+
+        .mobile-mega-menu-entry {
+          margin: 0 -8px;
+        }
+
+        .separator {
+          margin: 20px -8px;
+          border-top: 1px solid darken($navbar-inverse-link-color, 30%);
+        }
+
+        li > a {
+          color: $navbar-inverse-link-color;
+
+          &:hover,
+          &:focus {
+            color: #fff !important;
+            background-color: transparent;
+          }
+
+          &:focus {
+            box-shadow: inset 0 0 0 0.1rem #fff;
+            outline: 1.5px solid $navbar-inverse-link-color;
+            border: none;
+            border-radius: 4px;
+          }
+
+          &:focus:not(:focus-visible) {
+            border: none;
+            outline: none;
+            box-shadow: none;
+          }
+
+          &:focus-visible {
+            box-shadow: inset 0 0 0 0.1rem #fff;
+            outline: 1.5px solid $navbar-inverse-link-color;
+            border: none;
+            border-radius: 4px;
+          }
+        }
+
+        li.user-name {
+          margin: 0 0.4rem 0 0.4rem;
+
+          & > a {
+            display: block;
+            padding: 0 $sp-space--md;
+            height: $sp-space--xl * 2;
+
+            & > span.navbar-avatar {
+              line-height: $sp-space--sm * 7;
+            }
+
+            & > span:not(.navbar-avatar) {
+              line-height: 4.5rem;
+            }
+          }
+
+          &:hover {
+            @include -link-hover;
+
+            & > a {
+              color: $navbar-inverse-link-hover-color;
+            }
+          }
+
+          &:focus {
+            @include -link-focus;
+          }
+
+          &:focus:not(:focus-visible) {
+            @include -focus-visible-mouse-ua;
+          }
+
+          &:focus-visible {
+            @include -focus-visible-keyboard-ua;
+          }
+        }
+      }
+
+      .impersonate-and-logout {
+        div > ul > li:first-child {
+          & > a {
+            display: none;
+          }
+
+          ul.dropdown-menu {
+            width: 400px;
+            display: block;
+            z-index: inherit;
+            background-color: $navbar-inverse-bg;
+            box-shadow: none;
+            border-radius: 0;
+            padding-left: 2px;
+            padding-bottom: 16px;
+
+            li > a {
+              margin: 0 $sp-space--md 0 $sp-space--md;
+              padding: $sp-space--md;
+
+              &:hover {
+                @include -link-hover;
+
+                & > a {
+                  color: $navbar-inverse-link-hover-color;
+                }
+              }
+
+              &:focus {
+                @include -link-focus;
+
+                & > a {
+                  border: none;
+                  box-shadow: none;
+                }
+              }
+
+              &:focus:not(:focus-visible) {
+                @include -focus-visible-mouse-ua;
+              }
+
+              &:focus-visible {
+                @include -focus-visible-keyboard-ua;
+              }
+            }
+
+            li:first-child {
+              display: none;
+            }
+          }
+        }
+
+        div > ul > li > a {
+          margin: 0 $sp-space--md 0 $sp-space--md;
+          padding: $sp-space--md;
+
+          &:hover {
+            @include -link-hover;
+
+            & > a {
+              color: $navbar-inverse-link-hover-color;
+            }
+          }
+
+          &:focus {
+            @include -link-focus;
+
+            & > a {
+              border: none;
+              box-shadow: none;
+            }
+          }
+
+          &:focus:not(:focus-visible) {
+            @include -focus-visible-mouse-ua;
+          }
+
+          &:focus-visible {
+            @include -focus-visible-keyboard-ua;
+          }
+        }
+      }
+    }
+
+    .mobile-view-on-desktop.search-visible {
+      top: 113px;
+      position: absolute;
+      right: 0;
+      width: 100%;
+      /* To prevent Mega menu panel in hamburger view from growing beyond footer */
+      max-height: 100vh;
+      overflow-y: auto;
+      z-index: 999;
+      padding: 10px 0px;
+      margin-bottom: 10px;
+    }
+
+    .navbar-brand {
+      margin: 0;
+      margin-right: auto;
+      height: 60px;
+      padding: $sp-logo-margin-y 0px 10px $sp-logo-margin-x;
+
+      img,
+      span {
+        margin: 0;
+        display: block;
+        max-height: 14rem; /* Increase the height of the logo */
+        max-width: 36rem;
+        position: relative;
+        top: 50%;
+        -webkit-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+        transform: translateY(-50%);
+        bottom: -10px; /* Make the logo bleed out of the bottom of the navbar */
+      }
+    }
+
+    .navbar-right .dropdown-menu > li > a {
+      &:hover {
+        @include -link-hover;
+      }
+
+      &:focus {
+        @include -link-focus;
+      }
+
+      &:focus:not(:focus-visible) {
+        @include -focus-visible-mouse-ua;
+      }
+
+      &:focus-visible {
+        @include -focus-visible-keyboard-ua;
+      }
+    }
+  }
+
+  .dropdown-menu > li > a {
+    color: $navbar-inverse-link-color;
+  }
+
+  .dropdown-toggle:focus {
+    outline: thin dotted;
+    outline: 5px auto -webkit-focus-ring-color;
+  }
+
+  .sub-navbar {
+    background-color: $brand-primary-darkest; /* Adjusted from the theme */
+    border: none;
+    width: 100%;
+  }
+
+  .dropdown-menu {
+    background-color: rgba($navbar-inverse-bg, 0.97);
+    border: none;
+  }
+
+  .fa-caret-down {
+    vertical-align: middle;
+    margin-top: 2px;
+  }
+
+  .caret:before {
+    content: "\f0d7";
+  }
+
+  .caret {
+    vertical-align: baseline;
+    width: auto;
+    height: auto;
+    border: none;
+    margin-left: 5px !important;
+    display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  .label-as-badge {
+    font-size: 1.2rem;
+    position: relative;
+    left: -$sp-space--xxs;
+    padding: 1px 5px;
+    margin-left: 0;
+    background-color: #00172C;
+    color: $text-white;
+  }
+
+  .navbar {
+    transition: 250ms opacity ease-in-out;
+    -webkit-transition: 250ms opacity ease-in-out;
+    border: 0;
+  }
+
+  .navbar-fade {
+    opacity: 0.4;
+  }
+
+  .navbar-collapse {
+    padding-right: 0px;
+  }
+
+  .case-menu {
+    div#widget-tabs-2 {
+      border: none;
+
+      > .panel-heading {
+        border: none;
+        border-bottom: 1px solid $border;
+      }
+    }
+  }
+
+  ul.nav.navbar-nav {
+    // Hiding the loading indicator from Header Menu base system widget
+    div.header-loader {
+      display: none;
+    }
+
+    li.sp-loading-indicator {
+      padding-top: $sp-space--sm * 3;
+      margin-top: $sp-space--xxs;
+    }
+  }
+
+  #more-items-dropdown {
+    overflow: visible;
+  }
+
+  .cart-dropdown,
+  .wishlist-menu,
+  .gtd-dropdown-container .empty-dropdown {
+    width: 350px;
+    padding: 0;
+    z-index: 1000;
+    border-top-left-radius: 4px !important;
+    border-top-right-radius: 4px !important;
+
+    ul {
+      max-height: 300px;
+      overflow: auto;
+    }
+
+    .subtotal {
+      display: block;
+    }
+
+    .item-image {
+      padding: 0;
+      margin: 0;
+      text-align: center;
+      max-width: 100%;
+      height: auto;
+    }
+
+    label,
+    p {
+      padding: 0;
+      margin: 0;
+    }
+
+    .media {
+      padding: 0;
+      margin: 0;
+    }
+
+    .media-left > a {
+      display: block;
+      width: 48px;
+      max-width: 48px;
+    }
+
+    .media-body {
+      label {
+        font-weight: bold;
+      }
+    }
+
+    li.media {
+      border-top: 1px solid #cccccc;
+      padding: 1rem;
+    }
+
+    .panel {
+      margin: 0;
+    }
+
+    .panel .panel-body {
+      padding: 0;
+    }
+
+    .btn-clear {
+      color: #333;
+      background-color: #fff;
+    }
+
+    p.quantity-price {
+      padding-top: 0.5rem;
+
+      span {
+        color: $text-muted;
+        padding-right: 0.5rem;
+      }
+    }
+
+    .align-right {
+      text-align: right;
+    }
+  }
+
+  .item-added-tooltip,
+  wishlist-item-added-tooltip {
+    width: 184px;
+    font-size: 14px;
+  }
+
+  .gtd-dropdown-container {
+    .empty-tour-content {
+      text-align: center;
+      margin: 40px 20px;
+    }
+
+    .dropdown-menu li {
+      a {
+        cursor: pointer;
+      }
+
+      min-width: 20em;
+    }
+
+    .label-as-badge {
+      width: 12px;
+      height: 12px;
+      display: inline-block;
+      padding: 0px;
+      padding-top: 2px;
+    }
+
+    .badge-container {
+      display: inline-block;
+      width: 12px;
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .navbar-inverse {
+    .navbar-right > .navbar-nav > div {
+      float: left;
+    }
+
+    .navbar-right {
+      display: flex;
+      flex-direction: row-reverse;
+      margin-right: 10px;
+
+      > ul {
+        display: -webkit-box;
+        display: -moz-box;
+        display: box;
+
+        -moz-box-orient: horizontal;
+        box-orient: horizontal;
+        -webkit-box-orient: horizontal;
+      }
+
+      .navbar-nav > li > a {
+        padding-right: 10px;
+        padding-left: 10px;
+      }
+    }
+
+    .navbar-avatar {
+      margin-top: -7px;
+    }
+
+    a#todos_popup {
+      padding-left: 0px;
+    }
+
+    .navbar-nav .open .dropdown-menu > li > a {
+      margin: 0 $sp-space--sm 0 $sp-space--sm;
+      padding: 10px 20px;
+    }
+
+    .navbar-header {
+      position: relative;
+
+      .dropdown-toggle {
+        height: 60px;
+      }
+    }
+
+    .temp-mobile {
+      display: inline-block;
+    }
+
+    .sub-navbar {
+      display: flex;
+      padding-left: 0;
+    }
+
+    .sub-navbar--mobile-view {
+      .navigation--xs {
+        display: none;
+      }
+    }
+  }
+}
+
+.header-search-mobile {
+  margin: 1.3rem 1rem;
+  width: 100%;
+}
+
+/* Search bar styles in the header */
+.search-bar-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+  flex-grow: 1; /* Allow the search bar item to grow */
+}
+
+.search-container {
+  display: flex;
+  align-items: center;
+  padding: 2px 6px;
+  height: 40px;
+  width: 100%;
+  max-width: 180px; /* Set a max-width to 200px */
+  box-sizing: border-box; /* Ensure padding and borders are included in the element's total width and height */
+  border: 2px solid #fff; /* Added border for visibility */
+  border-radius: 30px; /* Added border-radius for styling */
+  background-color: #fff; /* Added background-color for styling */
+  transition: max-width 0.5s ease; /* Add transition for smooth animation */
+}
+
+.search-container.expanded {
+  max-width: 400px; /* Increase the max-width by 30% */
+}
+
+.search-input {
+  border: none; /* Remove border */
+  outline: none !important; /* Important to override default outline */
+  box-shadow: none !important; /* Important to override default shadow */
+  -webkit-box-shadow: none !important; /* Remove the shadow in WebKit browsers */
+  -moz-box-shadow: none !important; /* Remove the shadow in Firefox */
+  border-radius: 20px;
+  padding: 6px 10px; /* Adjusted padding for better size */
+  flex-grow: 1;
+  font-size: 16px; /* Adjusted font size for better readability */
+  width: calc(100% - 36px); /* Adjusted width to account for the button */
+}
+
+
+.search-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0; /* Remove padding */
+  margin: 0; /* Remove margin */
+}
+
+.search-icon {
+  color: #333;
+  font-size: 20px; /* Adjusted icon size */
+  margin-left: 8px; /* Adjusted margin for better spacing */
+}
+
+.search-input::placeholder {
+  color: #333;
+}
+
+.suggestions-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  position: absolute;
+  background-color: #fff;
+  border: none;
+  width: 100%;
+  max-width: 400px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+.suggestions-list li {
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+.suggestions-list li:hover {
+  background-color: #f0f0f0;
+}
+
+.search-container:hover {
+  border-color: #ddd;
+}
+
+.search-container:focus-within {
+  border-color: #aaa;
+}
+
+
+
+
+
+
+/* Colors */
+$navbar-bg-color: #012444;
+$marquee-bg-color: #00162c;
+
+/* Upper scrolling marquee */
+.scrolling-marquee {
+  background-color: $marquee-bg-color;
+  color: white;
+  padding: 5px 0;
+  font-size: 14px;
+
+  marquee {
+    white-space: nowrap;
+
+    span {
+      display: inline-block;
+      margin-right: 30px;
+    }
+  }
+}
+
+/* Navbar */
+.navbar-inverse {
+  background-color: $navbar-bg-color;
+  border: none;
+  margin-bottom: 0;
+  position: relative;
+  z-index: 3;
+
+
+  .navbar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+
+  .nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+
+  .nav-left,
+  .nav-right {
+    display: flex;
+    flex: 1;
+  }
+
+  .nav-left {
+    justify-content: flex-start;
+  }
+
+  .nav-right {
+    justify-content: flex-end;
+  }
+
+  .logo-container {
+    display: flex;
+    justify-content: center;
+    flex: 0 1 auto; /* allows the logo to stay centered */
+
+    .navbar-logo {
+      height: 80px; /* Increase the height of the logo */
+      position: relative;
+      bottom: -10px; /* Make the logo bleed out of the bottom of the navbar */
+    }
+  }
+
+  .navbar-nav {
+    list-style: none;
+    padding: 0;
+    margin-right: 12%;
+    margin-left: 12%;
+    display: flex;
+    align-items: center;
+  }
+
+ .navbar-nav li {
+    margin: 0 10px; /* Keep consistent spacing */
+    white-space: nowrap; /* Prevent line breaks within the menu items */
+    display: flex; /* Use flexbox for alignment */
+    align-items: center; /* Vertically align items */
+}
+
+  /* Hide old nav items */
+  .hidden-nav-items {
+    display: none !important;
+  }
+}
+
+/* Specific targeting for profile dropdown */
+#profile-dropdown + .dropdown-menu {
+  right: 0; /* Ensure it aligns to the right */
+  left: auto; /* Prevent it from extending left */
+  transform: none; /* Remove any transformation that might cause overflow */
+  max-width: 300px; /* Set a maximum width */
+  overflow-x: hidden; /* Prevent horizontal overflow */
+}
+
+/* Ensure the dropdown menu stays within the viewport */
+.navbar-inverse .dropdown-menu {
+  right: 0; /* Aligns the dropdown menu to the right edge of the navbar */
+  left: auto; /* Ensures it doesn't extend beyond the viewport */
+  transform: translateX(-10%); /* Optional: Adjust as necessary to fine-tune the position */
+  max-width: 300px; /* Set a maximum width to prevent overflow */
+  overflow-x: hidden; /* Prevent horizontal overflow */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .navbar-inverse .dropdown-menu {
+    right: 0;
+    left: auto;
+    transform: none; /* Reset transform for small screens */
+    max-width: none; /* Allow full width for small screens */
+    width: 100%; /* Full width on small screens */
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar-search .form-control {
+    max-width: 100px; /* Adjust as needed for mobile view */
+  }
+}
+
+/* Hide the second search bar */
+.header-search {
+  display: none !important;
+}
+
+.avatar-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 35px; 
+  height: 35px; 
+  background-color: #fce9d7; 
+  border-radius: 50%; 
+  overflow: hidden; 
+}
+
+/* Style for user initials */
+.user-initials {
+  font-size: 16px; /* Adjust font size as needed */
+  color: #00172c; /* Dark text color */
+  font-weight: normal; /* Ensure the font weight is normal */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+/* Override any existing avatar styles */
+.sub-avatar {
+  background-image: none !important; /* Remove background image */
+  background-color: transparent !important; /* Ensure no background color interference */
+  display: flex; /* Ensure flexbox is used */
+  justify-content: center; /* Center contents horizontally */
+  align-items: center; /* Center contents vertically */
+}
+
+/* Hamburger icon styles */
+.hamburger-icon {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+  margin-right: 20px; /* Add some space between the hamburger icon and the search bar */
+}
+
+.hamburger-icon div {
+  width: 80%;
+  height: 2px;
+  background-color: white;
+  border-radius: 2px;
+  transition: all 0.3s ease-in-out;
+}
+
+.hamburger-icon .bar1, .hamburger-icon .bar3 {
+  transform: translateX(3px);
+}
+
+
+/* Hamburger icon styles */
+.hamburger-icon {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+  margin-right: 20px; /* Add some space between the hamburger icon and the search bar */
+}
+
+.hamburger-icon div {
+  width: 80%;
+  height: 2px;
+  background-color: white; /* Change icon color */
+  border-radius: 2px;
+  transition: all 0.3s ease-in-out;
+}
+
+.hamburger-icon .bar1, .hamburger-icon .bar3 {
+  transform: translateX(3px);
+}
+
+/* Hamburger menu content styles */
+.hamburger-menu-content {
+  background-color: #fff;
+  color: #333;
+  position: absolute;
+  top: 50px;
+  left: 0;
+  width: 200px;
+  border: 1px solid #ccc;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  overflow: hidden;
+  max-height: 0; /* Initial height set to 0 for smooth transition */
+  opacity: 0; /* Initially hidden */
+  transition: max-height 0.4s ease, opacity 0.4s ease; /* Smooth transition for height and opacity */
+}
+
+.hamburger-menu-content.show {
+  max-height: 400px; /* Set a realistic max height */
+  opacity: 1; /* Make it visible */
+}
+
+.hamburger-menu-content ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.hamburger-menu-content li {
+  padding: 0;
+}
+
+.hamburger-menu-content li a {
+  text-decoration: none;
+  color: #012444;
+  display: block;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.hamburger-menu-content li a i {
+  margin-right: 10px;
+  color: #012444;
+}
+
+.hamburger-menu-content li a:hover {
+  background-color: #f5f5f5;
+}
+
+.hamburger-menu-content li:last-child {
+  border-bottom: none;
+}
+/* Move bar2 by 3px on hover */
+.hamburger-hover-wrapper:hover .bar2 {
+  transform: translateX(3px); /* Move bar2 horizontally by 3px */
+}
+#hamburgerMenu {
+  display: none; /* Menu is hidden by default */
+  transition: all 0.3s ease-in-out; /* Smooth transition */
+}
+
+#hamburgerMenu.show {
+  display: block; /* When menu is shown */
+}
+/* Avatar dropdown menu */
+.avatar-drop-down .dropdown-menu {
+  background-color: black !important; /* Default background color (black) */
+  border: none;
+  border-radius:   20px 0px 20px 20px;
+  position: absolute; /* Position it relative to the avatar */
+  top: 60px; /* Adjust vertical positioning */
+  right: 0; /* Align the dropdown to the right */
+  width: 160px; /* Set the width for the dropdown */
+}
+
+/* Adjust dropdown items */
+.avatar-drop-down .dropdown-menu li a {
+  color: white; /* Ensure the text stays white */
+  text-decoration: none;
+  display: block;
+  width: 100%; /* Ensure the hover effect spans the full width */
+}
+
+/* Hover effect */
+.avatar-drop-down .dropdown-menu li a:hover {
+  background-color: #00172C; /* Darker blue on hover */
+  border-radius: 15px;
+  width:90%;
+  height:90%;
+  color: white; /* Keep text color white for readability */
+}

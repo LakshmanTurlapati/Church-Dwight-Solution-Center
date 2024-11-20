@@ -1,0 +1,91 @@
+/* Parent Container Styling (above .panel-body) */
+.panel {
+    border-radius: 10px; /* Rounded corners for the entire container */
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); /* Subtle box shadow for the whole panel */
+    overflow: hidden; /* Ensure contents stay inside rounded corners */
+    background-color: #ffffff; /* White background for the panel */
+  }
+  
+  /* Internal Panel Styling */
+  
+  /* Change link color (incident number or other clickable links) */
+  .panel-body a {
+    color: #333; /* Dark grey for a more professional look */
+    text-decoration: none; /* Remove underline from links */
+  }
+  
+  .panel-body a:hover {
+    color: #007bff; /* Optional: Add a subtle hover effect */
+    text-decoration: underline; /* Optional: Add underline on hover */
+  }
+  
+  /* Styling the panel body where the table is located */
+  .panel-body {
+    border-radius: 0; /* No border-radius here since it's handled by the parent */
+    padding: 10px;
+    background-color: #ffffff;
+  }
+  
+  /* Style the table */
+  .panel-body table {
+    overflow: hidden;
+    box-shadow: none;
+    background-color: #ffffff;
+    border-spacing: 0;
+  }
+  
+  /* Table headers */
+  .panel-body table th {
+    background-color: #f8f9fa;
+    color: #333; /* Dark grey for headers */
+    padding: 8px 12px;
+    text-align: left;
+    border-bottom: 1px solid #dee2e6;
+  }
+  
+  /* Table cells */
+  .panel-body table td {
+    padding: 8px 12px;
+    border-bottom: 1px solid #dee2e6;
+    color: #333; /* Dark grey for table content */
+  }
+  
+  /* Footer Styling */
+  
+  /* Pagination styles */
+  .panel-footer {
+    padding: 10px 0;
+    background-color: #ffffff;
+    border-top: 1px solid #dee2e6;
+    text-align: center; /* Center the pagination */
+  }
+  /* Footer pagination buttons container */
+  .panel-footer .btn-toolbar {
+    display: flex; /* Ensure buttons are aligned in a row */
+    justify-content: center; /* Center the pagination */
+    margin-left: 0; /* Remove default left margin */
+    margin-top: 10px; /* Add some top spacing */
+  }
+  
+  /* Footer pagination buttons container */
+  .panel-footer .btn-toolbar {
+    display: flex; /* Ensure buttons are aligned in a row */
+    justify-content: center; /* Center the pagination */
+    margin-left: 0; /* Remove default left margin */
+    margin-top: 10px; /* Add some top spacing */
+  }
+  
+  /* Pagination buttons inside the btn-group */
+  .panel-footer .btn-group .btn {
+    border-radius: 5px; /* Rounded corners for pagination buttons */
+    box-shadow: none; /* Remove any shadow */
+    padding: 5px 10px; /* Adjust padding for buttons */
+    margin: 0 5px; /* Spacing between pagination buttons */
+  }
+  
+  /* Optional: Add hover effect to pagination buttons */
+  .panel-footer .btn-group .btn:hover {
+    background-color: #f1f1f1; /* Light hover background for buttons */
+  }
+  
+  

@@ -1,0 +1,65 @@
+/* Base CSS for the container */
+.banner {
+    height: 40vh; /* Height is 40% of the viewport height */
+    overflow: hidden; 
+    position: relative;
+    margin: 0;
+    padding: 0;
+}
+
+.hero-text {
+    text-align: left;
+    position: absolute;
+    top: 40%; /* Center vertically */
+    left: 9%; /* Maintain left position */
+    transform: translateY(-50%); /* Adjust position to be vertically centered */
+    color: white;
+    font-family: 'Lato', sans-serif;
+}
+
+.service-now-banner {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 20vw; /* Width is 20% of the viewport width */
+    height: auto; /* Maintain aspect ratio */
+    margin: 0;
+    padding: 0;
+}
+
+/* Media queries for adjusting the service-now-banner width */
+@media only screen and (min-width: 1600px) {
+    .service-now-banner {
+        width: 20vw; /* Smaller width for larger screens */
+    }
+}
+
+@media only screen and (min-width: 1200px) and (max-width: 1599px) {
+    .service-now-banner {
+        width: 30vw; /* Adjust width for larger screens */
+    }
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+    .service-now-banner {
+        width: 30vw; /* Default width */
+    }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+    .service-now-banner {
+        width: 35vw; /* Larger width for smaller screens */
+    }
+}
+
+@media only screen and (min-width: 576px) and (max-width: 767px) {
+    .service-now-banner {
+        width: 30vw; /* Larger width for smaller screens */
+    }
+}
+
+@media only screen and (max-width: 575px) {
+    .service-now-banner {
+        width: 40vw; /* Largest width for smallest screens */
+    }
+}

@@ -1,0 +1,48 @@
+<div class="kb-banner-{{::c.data.instanceid}}">
+    <div class="cm-main-search">
+      <div class="cm-welcome-msg hidden-sm hidden-xs">
+        <h2 ng-bind="::options.title"></h2>
+      </div>
+      <div class="cm-search-box">
+        <div class="banner-search">
+          <form id="kb_home_search_form" ng-submit="c.submitSearch()" class="ng-pristine ng-valid" role="form">
+            <input name="id" value="kb_search" type="hidden"/>
+            <div class="input-group input-group-{{::c.options.size || 'lg'}}" role="presentation">
+              <input name="query" ng-model="c.keyword" type="text" aria-label="${Search}" 
+                     placeholder="{{::options.placeholder}}" class="form-control">
+              <span class="input-group-btn">
+                <button name="search" type="submit" class="btn btn-{{::c.options.color}}"
+                        aria-label="${search}" data-toggle="tooltip" data-placement="bottom" title="{{::c.data.messages.searchMsg}}">
+                  <i ng-if="::c.options.glyph" class="fa fa-{{::c.options.glyph}}" aria-hidden="true"></i>
+                </button>
+              </span>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="cm-community-summary hidden-sm hidden-xs">
+        <ul class="list-unstyled">
+          <li class="summary"> ${{{$root.kb_count}} Knowledge Bases}</li>
+          <li class="summary">${{{$root.articles_count}} Articles}</li>
+          <li class="summary" ng-if="c.data.sqa_ui_active">${{{$root.socialqa_count}} Q&amp;A}</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <style>
+    @media screen and (max-width: 992px){
+      .kb-banner-{{::c.data.instanceid}} .cm-main-search{
+        height: inherit;
+        margin:0 -2.5rem;
+      }
+      .kb-banner-{{::c.data.instanceid}} .cm-search-box{
+        width:100%;
+        padding:2rem;
+      }
+    }
+    @media screen and (max-width: 640px){
+      .kb-banner-{{::c.data.instanceid}} .cm-main-search{
+        margin:0 -1.5rem;
+      }
+    }
+  </style>

@@ -1,0 +1,148 @@
+.banner {
+    height: 40vh;
+    overflow: hidden;
+    position: relative;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+}
+
+.hero-text {
+    text-align: left;
+    position: absolute;
+    top: 35%; /* Adjust for vertical alignment */
+    left: 9%;
+    transform: translateY(-50%);
+    color: white;
+    font-family: 'Lato', sans-serif;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Drop shadow for text */
+}
+
+.hero-text h1 {
+    font-size: 2.3em; /* Reduced font size slightly */
+    margin-bottom: 0.5em;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Drop shadow for text */
+}
+
+.hero-text h1 .light-text {
+    font-weight: 200; /* Lighter font weight */
+    opacity: 0.8; /* Slightly lighter appearance */
+}
+
+.service-now-banner {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 20vw;
+    height: auto;
+    margin: 0;
+    padding: 0;
+}
+
+/* Search Container Styling */
+.search-container {
+    display: flex;
+    align-items: center;
+    padding: 5px 12px;
+    height: 40px;
+    width: 100%;
+    max-width: 475px;
+    box-sizing: border-box;
+    border: 2px solid #fff;
+    border-radius: 30px;
+    background-color: #fff;
+    transition: max-width 0.5s ease;
+    margin-top: 2em;
+    position: relative; /* Set relative positioning for absolute child alignment */
+}
+
+/* Search Input Styling */
+.search-input {
+    border: none;
+    outline: none !important;
+    box-shadow: none !important;
+    border-radius: 20px;
+    padding: 6px 10px;
+    flex-grow: 1;
+    font-size: 16px;
+    color: black; /* Set font color to black */
+    background-color: transparent;
+}
+
+/* Search Button Styling */
+.search-button {
+    position: absolute; /* Use absolute positioning for precise placement */
+    right: 5px; /* Align to the far right with a 5px margin */
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Search Icon Styling */
+.search-icon {
+    color: #BA0C2F; /* Set icon color to #BA0C2F */
+    font-size: 20px;
+}
+.quick-links {
+    margin-top: 1em;
+    margin-left: 1em;l
+    font-size: 0.9em;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    opacity: 1; /* Apply a lighter appearance to the whole section */
+}
+
+.quick-links::before {
+    content: "Quick links:";
+    margin-right: 10px;
+    font-weight: 300; /* Lighter font weight */
+    color: #fff;
+}
+  
+.quick-links a {
+    color: #fff;
+    text-decoration: underline;
+    margin-right: 15px;
+    font-weight: 300; /* Lighter font weight */
+}
+
+@media only screen and (min-width: 1600px) {
+    .service-now-banner {
+        width: 20vw;
+    }
+}
+
+@media only screen and (min-width: 1200px) and (max-width: 1599px) {
+    .service-now-banner {
+        width: 30vw;
+    }
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+    .service-now-banner {
+        width: 30vw;
+    }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+    .service-now-banner {
+        width: 35vw;
+    }
+}
+
+@media only screen and (min-width: 576px) and (max-width: 767px) {
+    .service-now-banner {
+        width: 30vw;
+    }
+}
+
+@media only screen and (max-width: 575px) {
+    .service-now-banner {
+        width: 40vw;
+    }
+}

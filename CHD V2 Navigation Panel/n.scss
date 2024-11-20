@@ -1,0 +1,105 @@
+/* Scrollable category list with increased height */
+.category-list {
+    max-height: 460px !important; /* Increased max height for the category list */
+    overflow-y: auto; /* Enable vertical scrolling */
+  }
+  
+  /* Category Widget Panel */
+  .category-widget {
+    border: 1px solid $panel-inner-border;
+    border-radius: 20px !important; /* Apply 20px border radius */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Add box shadow */
+  
+    /* Panel Heading (Top of the panel) */
+    .panel-heading {
+      background-color: #BA0C2F !important; /* Apply red color to the panel heading */
+      color: white !important; /* White text for the panel heading */
+      font-weight: bold;
+      border-radius: 20px 20px 0 0 !important; /* Rounded corners for the top panel */
+    }
+  
+    /* Category List Styling */
+    .category-list {
+      .fa {
+        margin-right: 5px;
+      }
+  
+      .l-h-1_6x {
+        line-height: 1.6em;
+      }
+  
+      a {
+        width: 100%;
+        vertical-align: middle;
+        display: inline-block;
+        color: inherit; /* Inherit link color */
+      }
+  
+      .list-group {
+        margin-bottom: 0;
+      }
+  
+      .list-group-item {
+        padding: 0;
+        border: 0;
+      }
+  
+      .group-item {
+        padding: 10px 15px;
+        border-left: 3px solid transparent !important;
+      }
+  
+      .group-item-primary {
+        &:hover,
+        &:focus {
+          border-left: 3px solid #BA0C2F !important;
+          border-right: 3px solid transparent !important; /* For high contrast */
+          border-top: none;
+          border-bottom: none;
+        }
+      }
+    }
+  
+    /* Reintroduced Panel Footer */
+    .panel-footer {
+      background-color: #BA0C2F !important; /* Apply red color to the footer */
+      color: white !important; /* White text for the footer */
+      border-radius: 0 0 20px 20px !important; /* Rounded corners for the bottom panel */
+      padding: 10px;
+    }
+  }
+  
+  /* Badge Styling */
+  .panel-primary .badge,
+  .panel-default .badge,
+  .panel-success .badge,
+  .panel-info .badge,
+  .panel-warning .badge,
+  .panel-danger .badge {
+    background-color: white; /* White background for badges */
+    color: #BA0C2F; /* Use red for badge text */
+  }
+  
+  /* Active text in category list */
+  .text-active {
+    color: #BA0C2F !important;
+    border-left: 3px solid #BA0C2F;
+    font-weight: bold;
+  }
+  
+  /* Default text color for items */
+  .text-default {
+    color: black !important;
+  }
+  
+  /* Close button padding */
+  .close-button {
+    padding: $sp-space--xxs;
+  }
+  
+  /* Ensure proper border radius at the bottom */
+  .panel > .list-group:last-child .list-group-item:last-child,
+  .panel > .panel-collapse > .list-group:last-child .list-group-item:last-child {
+    border-bottom-right-radius: 0px;
+    border-bottom-left-radius: 0px;
+  }

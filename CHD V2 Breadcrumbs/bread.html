@@ -1,0 +1,32 @@
+<nav aria-label="Page breadcrumbs" role="navigation" class="breadcrumbs" 
+    ng-class="{'breadcrumb-white-text': isDarkBackground(), 'breadcrumb-black-text': !isDarkBackground()}">
+  <ul class="nav nav-pills nav-sm">
+    <li>
+      <span>
+        <a ng-href="?id={{portal.homepage_dv}}" class="breadcrumb-item boldest">${Home}</a>
+        <span class="breadcrumb-separator">/</span>
+      </span>
+    </li>
+    <li ng-if="!c.expanded && c.breadcrumbs && c.breadcrumbs.length > 2">
+      <span>
+        <a ng-click="c.expand()" class="breadcrumb-item"><i class="fa fa-ellipsis-h" aria-hidden="true"></i></a>
+        <span class="breadcrumb-separator">/</span>
+      </span>
+    </li>
+    <li ng-if="!c.breadcrumbs">
+      <span class="breadcrumb-item a-disabled boldest" aria-current="page">{{page.title}}</span>
+    </li>
+    <li ng-if="c.expanded || ((c.breadcrumbs.length > 2 && $index > c.breadcrumbs.length - 3) || c.breadcrumbs.length <= 2)"
+        ng-repeat="item in c.breadcrumbs track by $index">
+      <span>
+        <a ng-if="!$last" ng-href="{{item.url}}" class="breadcrumb-item" 
+           ng-class="{'boldest': $index === 0, 'bold': $index === 1, 'normal': $index === 2, 'lightest': $last}">
+          {{item.label}}
+        </a>
+        <span class="breadcrumb-item a-disabled" ng-if="$last" aria-current="page">{{item.label}}</span>
+        <span class="breadcrumb-separator" ng-if="!$last">/</span>
+      </span>
+    </li>
+  </ul>
+</nav>
+<br>

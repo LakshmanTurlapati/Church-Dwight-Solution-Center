@@ -1,0 +1,154 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+<!-- Upper scrolling marquee -->
+<div class="scrolling-marquee">
+  <marquee behavior="scroll" direction="left">
+    <span>INC0526028 | SAP Transaction CO88 not running....</span>
+    <span>INC0528905 | WMS | Blocked for security.....</span>
+    <span>INC0514376 | Self Hosted IR.....</span>
+  </marquee>
+</div>
+
+<!-- Navbar -->
+<nav class="navbar-inverse" aria-label="Primary" role="navigation" ng-if="!showViewAsHeader">
+  <div class="clearfix header-container">
+    <div class="navbar-header nav-container">
+      <!-- Left Navigation Items -->
+      <div class="nav-left">
+        <ul class="nav navbar-nav">
+          <li class="gt-menu-item" role="presentation" ng-if="showHamburgerMenu">
+        <a href="javascript:void(0);" class="icon" onclick="toggleHamburgerMenu()">
+          <div class="hamburger-hover-wrapper">
+            <div class="hamburger-icon">
+              <div class="bar1"></div>
+              <div class="bar2"></div>
+              <div class="bar3"></div>
+            </div>
+          </div>
+        </a>
+      </li>
+          <!-- Home link -->
+          
+          <li class="gt-menu-item" role="presentation">
+            
+            <a href="?id={{::portal.homepage_dv}}" aria-label="Home" role="menuitem">Home</a>
+          </li>
+          
+               <li class="gt-menu-item search-bar-item" ng-if="showSearchBar">
+        <form class="search-container" ng-submit="c.submitSearch($event)">
+          <input type="text" placeholder="Search" class="search-input" id="search-input" autocomplete="off" ng-model="c.searchTerm" ng-change="c.showSuggestions(c.searchTerm)">
+          <button type="submit" class="search-button" title="Search" aria-label="Search">
+            <i class="fa fa-search search-icon"></i>
+          </button>
+          <ul id="suggestions-list" class="suggestions-list"></ul>
+        </form>
+      </li>
+
+          <!-- All My Incidents link -->
+          <li class="gt-menu-item" role="presentation" ng-if="showIncidentsAndRequests">
+            <a href="?id=chd_v2_my_requests" aria-label="All My Incidents" role="menuitem">
+              All My Incidents <span class="label label-as-badge label-primary">02</span>
+            </a>
+          </li>
+          
+     
+
+          <!-- Requests link with hardcoded count -->
+          <li class="gt-menu-item" role="presentation" ng-if="showIncidentsAndRequests">
+            <a href="?id=chd_v2_my_incidents" aria-label="All My Requests" role="menuitem">
+              All My Requests <span class="label label-as-badge label-primary">29</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Center Logo -->
+      <div class="logo-container">
+        <a class="navbar-brand navbar-brand-logo" href="?id={{::portal.homepage_dv}}" aria-label="{{::portal.title}} - Home Page">
+          <img class="navbar-logo" ng-src="{{::portal.logo}}" alt="{{::portal.title}} - Home Page" />
+        </a>
+      </div>
+
+      <!-- Right Navigation Items -->
+      <div class="nav-right">
+        <ul class="nav navbar-nav">
+          <li class="gt-menu-item" role="presentation">
+            <a href="#tours" aria-label="Switch to Classic" role="menuitem">Switch to Classic</a>
+          </li>
+          <li class="gt-menu-item" role="presentation">
+            <a href="#cart" aria-label="Cart" role="menuitem">
+              <i class="fas fa-shopping-cart"></i> Cart
+            </a>
+          </li>
+          <li class="avatar-drop-down gt-menu-item dropdown" role="menuitem">
+            <a href="#" class="toggle-dropdown" data-toggle="dropdown" aria-expanded="true" title="User options" aria-label="User options" id="profile-dropdown" role="menuitem" aria-haspopup="true">
+              <span class="navbar-avatar" aria-hidden="true">
+                <div class="avatar-small-medium avatar-container">
+                  <div class="avatar soloAvatar bottom">
+                    <div class="sub-avatar" style="background-image: none;">
+                      <span class="user-initials" ng-bind="user_initials"></span>
+                    </div>
+                  </div>
+                </div>
+              </span>
+              <i class="m-l-xs fa fa-caret-down"></i>
+            </a>
+            <ul class="dropdown-menu">
+              <li><a href="#profile">Profile</a></li>
+              <li><a href="#impersonate">Impersonate</a></li>
+              <li><a href="#logout">Logout</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+ <div id="hamburgerMenu" class="hamburger-menu-content">
+    <ul>
+      <li><a href="?id=404"><i class="fa fa-map"></i> Tours</a></li>
+    <li><a href="?id=404"><i class="fa fa-play-circle"></i> Training Videos</a></li>
+    <li><a href="?id=chd_v2_my_requests"><i class="fa fa-tasks"></i> All My Requests</a></li>
+    <li><a href="?id=chd_v2_my_incidents"><i class="fa fa-exclamation-circle"></i> All My Incidents</a></li>
+    <li><a href="/?id=404"><i class="fa fa-book"></i> Service Catalog</a></li>
+    <li><a href="/?id=404"><i class="fa fa-check-circle"></i> Pending Approvals</a></li>
+    <li><a href="/?id=404"><i class="fa fa-bell"></i> Notifications</a></li>
+    <li><a href="/?id=404"><i class="fa fa-comments"></i> Chats</a></li>
+    <li><a href="/logout.do?sysparm_goto_url=/esc_portal"><i class="fa fa-cog"></i> Settings</a></li>
+    </ul>
+  </div>
+</nav>
+
+   
+     
+  
+
+
+
+<script>
+ // Function to toggle the hamburger menu
+function toggleHamburgerMenu() {
+  var menu = document.getElementById("hamburgerMenu");
+  if (menu.classList.contains("show")) {
+    menu.classList.remove("show"); // Hide the menu with animation
+  } else {
+    menu.classList.add("show"); // Show the menu with animation
+  }
+}
+
+// Function to close the hamburger menu when clicking outside
+function closeHamburgerMenu(event) {
+  var menu = document.getElementById("hamburgerMenu");
+  var icon = document.querySelector(".hamburger-icon");
+
+  // If the clicked element is outside the menu or the hamburger icon
+  if (menu.classList.contains("show") && !menu.contains(event.target) && !icon.contains(event.target)) {
+    menu.classList.remove("show");
+  }
+}
+
+// Add event listener to detect clicks outside the menu
+document.addEventListener("click", function(event) {
+  closeHamburgerMenu(event);
+});
+</script>

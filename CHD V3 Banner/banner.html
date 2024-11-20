@@ -1,0 +1,20 @@
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+<div class="banner">
+    <div class="hero-text">
+        <h1>Hello {{userLastName}},<br><span class="light-text">Welcome to the Solution Center!</span></h1>
+        <form class="search-container" ng-submit="c.submitSearch($event)">
+            <input type="text" placeholder="How can we help you today?" class="search-input" id="search-input" autocomplete="off" ng-model="c.searchTerm" ng-change="c.showSuggestions(c.searchTerm)">
+            <button type="submit" class="search-button" title="Search" aria-label="Search">
+                <i class="fa fa-search search-icon"></i>
+            </button>
+            <ul id="suggestions-list" class="suggestions-list"></ul> <!-- Suggestions list -->
+        </form>
+        <div class="quick-links">
+            
+            <a href="#">Reset my password</a>
+            <a href="#">Onboarding</a>
+            <a href="#">Order a laptop</a>
+        </div>
+    </div>
+    <img src="https://www.churchdwight.com/img/redesign/hero-generic-bg.svg" alt="ServiceNow Banner" class="service-now-banner">
+</div>

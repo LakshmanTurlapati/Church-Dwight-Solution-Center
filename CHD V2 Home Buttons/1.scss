@@ -1,0 +1,233 @@
+/* Existing CSS */
+
+.iconlink a label, h2 {
+    display: block;
+    font-size: 2.5rem;
+    font-weight: 300;
+    line-height: 1.1;
+    padding: 0;
+    margin: 0 0 10px 0;
+}
+  
+/* TOP ICON ---------- */
+
+a.top_icon {
+    display: block;
+    padding: 20px;
+    text-align: center;
+}
+
+a.top_icon .fa {
+    display: block;
+    text-align: center;
+}
+  
+/* CIRCLE ICON ---------- */
+
+a.circle_icon {
+    display: block;
+    padding: 20px 0px 20px 70px;
+    position: relative;
+}
+
+a.circle_icon .fa {
+    position: absolute;
+    left: 10px;
+    top: 10px;
+}
+  
+/* COLOR BOX ---------- */
+
+a.color_box {
+    display: block;
+    position: relative;
+    padding: 20px 20px 20px 82px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+}
+
+a.color_box .fa {
+    position: absolute;
+    left: 20px;
+    top: 20px;
+    width: 42px;
+    text-align: center;
+}
+
+a.color_box:hover {
+    background: #BFCDDA;
+    border-top: 1px solid #b8b8b8;
+}
+
+.icon-link-background-primary {
+    background-color: $brand-primary;
+}
+
+.icon-link-background-info {
+    background-color: $brand-info;
+}
+
+.icon-link-background-success {
+    background-color: $brand-success;
+}
+
+.icon-link-background-warning {
+    background-color: $brand-warning;
+}
+
+.icon-link-background-danger {
+    background-color: $brand-danger;
+}
+
+.icon-link-background-default {
+    background-color: $brand-primary;
+}
+
+.text-primary {
+    color: $brand-primary;
+}
+
+.text-primary:hover {
+    color: darken($brand-primary, 20%);
+}
+
+.text-info {
+    color: $brand-info;
+}
+
+.text-info:hover {
+    color: darken($brand-info, 20%);
+}
+
+.text-success {
+    color: $brand-success;
+}
+
+.text-success:hover {
+    color: darken($brand-success, 20%);
+}
+
+.text-warning {
+    color: $brand-warning;
+}
+
+.text-warning:hover {
+    color: darken($brand-warning, 20%);
+}
+
+.text-danger {
+    color: $brand-danger;
+}
+
+.text-danger:hover {
+    color: darken($brand-danger, 20%);
+}
+
+.text-default {
+    color: $brand-primary;
+}
+
+.text-default:hover {
+    color: darken($brand-primary, 20%);
+}
+
+.high-contrast .text-primary {
+    color: darken($brand-primary, 10%);
+}
+
+.high-contrast .text-info {
+    color: darken($brand-info, 10%);
+}
+
+.high-contrast .text-success {
+    color: darken($brand-success, 10%);
+}
+
+.high-contrast .text-warning {
+    color: darken($brand-warning, 10%);
+}
+
+.high-contrast .text-danger {
+    color: darken($brand-danger, 10%);
+}
+
+.high-contrast .text-default {
+    color: darken($brand-primary, 10%);
+}
+
+/* Custom CSS for the pill widget */
+
+.pill-widget {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  min-width: 300 px;
+}
+
+.pill-content {
+    display: flex;
+    align-items: center;
+    background-color: #004d92;
+    color: white;
+    border-radius: 50px;
+    padding: 20px 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-decoration: none;
+    transition: background-color 0.5s ease-in-out; /* Add transition for smooth effect */
+    position: relative; /* Added for absolute positioning of the icon */
+}
+
+.pill-content:hover {
+    background-color: #003366; /* Darker color on hover */
+}
+
+.pill-text {
+    margin-right: 15px;
+    max-width: calc(100% - 40px); /* Adjust width to ensure icon fits */
+    display: flex;
+    flex-direction: column;
+}
+
+.pill-title {
+    font-size: 18px;
+    font-weight: 500;
+    margin: 0;
+    font-family: 'Lato', sans-serif;
+    white-space: nowrap; /* Prevent line break */
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.pill-subtitle {
+    font-size: 12px;
+    font-weight: 100;
+    margin: 0;
+    margin-top: 5px;
+    font-family: 'Lato', sans-serif;
+    line-height: 1;
+    opacity: 0.7;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.pill-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px; /* Ensure height is the same as width */
+    position: absolute; /* Position the icon absolutely */
+    right: 30px; /* Adjust as necessary */
+}
+
+.pill-icon i {
+    color: #004d92;
+    font-size: 18px; /* Adjusted font-size to fit within 24x24 circle */
+    font-weight: bold;
+}

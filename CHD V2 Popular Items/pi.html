@@ -1,0 +1,117 @@
+<div id="sc_category_page" class="m-t-sm" ng-class="{'hidden-xs' : hideItemWidget, 'm-l-sm': !isMobile}">
+  <h4 ng-if="data.error">{{data.error}}</h4>
+  <div ng-init="spSearch.targetCatalog()">
+    <div class="row">
+      <div class="col-xs-9">
+        <button ng-click="showCategories()" class="visible-xs m-b-sm pointer btn-link" tabindex="0" id="all-categories-link">
+          <i class="fa fa-chevron-left m-r-xs"></i> ${All Categories}
+        </button>
+        <h2 class="h4 m-t-none break-word">Service Catalog</h2>
+        <p class="hidden-xs break-word">
+          Welcome to the Service Catalog: your portal for service requests.
+        </p>
+      </div>
+      <div class="col-xs-3" ng-if="!isMobile">
+        <div role="tablist" class="pull-right padder-t-sm text-lg toggle" ng-show="!data.error && data.items.length > 0">
+          <i id="tab-card" 
+             role="tab" 
+             class="fa fa-th tab-card-padding" ng-click="changeView('card')" 
+             ng-keydown="switchTab($event)" aria-label="${Card View}" 
+             ng-class="{'active' : view == 'card'}"
+             title="${Card View}"
+             data-toggle="{{!isTouchDevice() ? 'tooltip' : undefined}}"
+             data-placement="top"
+             data-container="body"
+             aria-selected="{{view == 'card'}}" 
+             aria-label="${Card View}"
+             ng-attr-aria-controls="{{view == 'card' ? 'tabpanel-card-' + (data.category_id ? data.category_id : '') : undefined}}" 
+             tabindex="{{view == 'card' ? '0' : '-1'}}"></i>
+          <span class="m-l-sm m-r-sm" aria-hidden="true"> | </span>
+          <i id="tab-grid" 
+             role="tab" 
+             class="fa fa-list-ul tab-card-padding" 
+             ng-click="changeView('grid')" 
+             ng-keydown="switchTab($event)" 
+             ng-class="{'active' : view == 'grid'}"
+             title="${Table View}"
+             data-toggle="{{!isTouchDevice() ? 'tooltip' : undefined}}"
+             data-placement="top"
+             data-container="body"
+             aria-selected="{{view == 'grid'}}"
+             aria-label="${Table View}" 
+             ng-attr-aria-controls="{{view == 'grid' ? 'tabpanel-grid-' + (data.category_id ? data.category_id : '') : undefined}}" 
+             tabindex="{{view == 'grid' ? '0' : '-1'}}"></i>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <!-- Loader -->
+      <div class="text-a-c" ng-if="showTopLoader">
+        <i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
+        <span class="sr-only">${Loading...}</span>
+      </div>
+
+      <!-- Table View -->
+      <div id="tabpanel-grid-{{::data.category_id}}" role="tabpanel" aria-labelledby="{{'tab-grid'}}" ng-if="view == 'grid' && data.items.length > 0">
+        <table class="table modern-table item-table" aria-label="{{::data.category.title}}" aria-describedby="id-caption-category">
+          <caption id="id-caption-category"><span class="sr-only">{{::data.category.title}}</span></caption>
+          <thead>
+            <tr>
+              <th id="id-header-item" scope="col">${Item}</th>
+              <th id="id-header-description" scope="col">${Description}</th>
+              <th id="id-header-link" scope="col">${Action}</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="item in data.items | orderBy: 'order' | limitTo: data.limit track by item.sys_id" ng-class-even="'table-row-alt'" ng-init="startItemList()">
+              <td id="id-item-{{item.sys_id}}" headers="id-header-item" scope="row">
+                <div class="item-icon-title">
+                  <i class="fa" ng-class="[getItemIcon(item), getIconColor(item)]"></i>
+                  <span class="catalog-text-wrap catalog-item-name">{{::item.name}}</span>
+                </div>
+              </td>
+              <td headers="id-header-description id-item-{{item.sys_id}}" class="catalog-text-wrap">
+                {{::item.short_description}}
+              </td>
+              <td headers="id-header-link id-item-{{item.sys_id}}">
+                <a class="item-link" ng-href="{{::getItemHREF(item)}}">
+                  <i class="fa fa-chevron-circle-right chevron-icon"></i>
+                </a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Card View (Unchanged) -->
+      <div id="tabpanel-card-{{::data.category_id}}" ng-if="view == 'card' && data.items.length > 0" role="tabpanel" aria-labelledby="{{'tab-card'}}">
+        <ul class="item-list-style-type-none item-card-row" role="list" aria-label="{{data.category.title}} ${items}">
+          <li class="item-card-column" ng-repeat="item in data.items | orderBy: 'order' | limitTo: data.limit track by item.sys_id" ng-init="startItemList()" role="listitem">
+            <div class="panel panel-default item-card b sc-panel">
+              <div class="panel-body block height-100">
+                <div class="item-header">
+                  <h3 class="item-title">
+                    <i class="fa" ng-class="[getItemIcon(item), getIconColor(item)]"></i>{{::item.name}}
+                  </h3>
+                  <p class="item-description">{{::item.short_description}}</p>
+                  <a class="item-link" ng-href="{{::getItemHREF(item)}}">
+                    <i class="fa fa-chevron-circle-right chevron-icon"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </li>
+        </ul>
+          <!-- Show More Button -->
+      <div class="text-a-c" ng-if="data.show_more && !show_popular_item">
+       <button class="btn-see-more" ng-click="loadMore()">
+        See More
+    </button>
+      </div>
+      </div>
+
+    
+    </div>
+  </div>
+</div>
+<now-message key="Catalogs" value="${Catalogs}"/>

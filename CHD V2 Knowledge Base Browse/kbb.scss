@@ -1,0 +1,370 @@
+.kb-browse-block {
+  margin: 0 -15px;
+}
+
+.kb-browse-section {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.kb-browse-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 10px;
+  bg-color:#012444;
+  
+}
+
+.kb-header {
+  font-weight: normal;
+}
+
+.kb-header-block {
+  display: flex;
+  align-items: center;
+}
+
+.kb-header-block h2 {
+  font-size: 23px;
+  margin-right: 15px; 
+  line-height: 1.5; 
+}
+
+.vertical-divider {
+  padding-right: 12px;
+  border-right: 1px solid #bdc0c4;
+  line-height: 40px;
+}
+
+.kb-action-btns {
+  display: flex;
+  gap: 10px; 
+}
+
+.action-btns {
+  height: auto;
+  align-self: center;
+  margin-top: 2px; 
+}
+
+.menu-padding {
+  margin-top: 2px;
+}
+
+.kb-browse-content {
+  margin: 0;
+}
+
+.kb-browse-tiles {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between; /* Adjusts spacing between items */
+}
+
+.kb-tile-block {
+  padding: 15px;
+  flex: 1 1 23%; /* Ensures 4 items per row, adjusting for padding/margin */
+  box-sizing: border-box;
+  min-width: 200px; /* Ensures the tiles do not get too small */
+}
+
+.kb-tile {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 10px;
+  box-sizing: border-box;
+  height: 100%;
+  background-color: #004B8D; // Set background color
+  color: white; // Set text color to white for readability
+  border-radius: 20px; // Adds rounded corners
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); // Subtle box shadow
+  margin-bottom: 0px !important;
+}
+
+.kb-top-pad {
+  padding-top: 20px;
+}
+
+.subscribe-link {
+  display: block;
+  width: 100%;
+  padding: 0px;
+  text-decoration: none;
+  &:focus {
+    outline: none;
+  }
+  &:focus > .kb-subscribe {
+    outline: 5px auto $brand-primary;
+    outline-offset: -2px;
+  }
+}
+
+.kb-top a {
+  display: block;
+}
+
+.kb-subscribe {
+  padding: 5px 10px;
+  font-size: 16px;
+  color: $brand-primary-darker;
+  .unsub-icon i {
+    padding-right: 4px;
+  }
+  .sub-icon i {
+    color: $text-muted;
+    padding-right: 7px;
+  }
+  .sub-text {
+    color: $text-muted;
+  }
+  .unsub-text:hover span {
+    display: none;
+  }
+  .unsub-text:hover:after {
+    content: attr(data-hover);
+  }
+}
+
+.kb-tile-link {
+  padding: 10px 5px;
+  .link-icon img, .link-icon i {
+    font-size: 50px;
+    height: 50px;
+    color: #000000;
+  }
+  .link-text {
+    height: 40px;
+    padding: 0 5px;
+    h3 {
+      color: $text-color;
+      font-weight: normal;
+      display: block;
+      display: -webkit-box;
+      font-size: 16px;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      text-align: center;
+      line-height: 1.2em;
+    }
+    .big-title {
+      position: relative;
+      line-height: 1.2em;
+      height: 2.4em;
+    }
+    .big-title:after {
+      content: "...";
+      font-weight: bold;
+      position: relative;
+      bottom: 0;
+      right: 0;
+      letter-spacing: .10em;
+    }
+  }
+}
+
+.kb-hide-me {
+  display: none;
+}
+
+.kb-details {
+  .kb-summary {
+    padding: 4px;
+    .kb-count {
+      padding: 3px;
+      font-size: 13px;
+      font-weight: 400px;
+    }
+  }
+}
+.kb-details .fa-file-text {
+    color: #FFA300; /* Same as toggle active color */
+}
+
+.kb-details .fa-question-circle {
+    color: #00233A; /* Same as toggle active color */
+}
+.kb-details .kb-count {
+    color: #000000; /* Set font color to black */
+}
+
+.kb-bottom {
+  padding: 0px;
+  button:hover, button:focus {
+    background-color: $thumbnail-border;
+  }
+  .unsub-icon i:hover, .unsub-icon i:focus {
+    color: $brand-primary-darker;
+  }
+}
+.kb-tile .link-text h3 {
+  color: white; /* Ensure tile title text is white */
+}
+
+.kb-details .kb-summary {
+  color: white; /* Set color for article and question counts */
+}
+
+.kb-details .fa-file-text,
+.kb-details .fa-question-circle {
+  color: white; /* Set icons to white to maintain readability */
+}
+
+.kb-details .kb-count {
+  color: white; /* Ensure count text remains readable */
+}
+
+.kb-tile a:hover,
+.kb-tile a:focus {
+  text-decoration: none; /* Remove underline on hover/focus */
+}
+
+/* Adjust other elements as necessary */
+.kb-show-more .toggle-label,
+.kb-show-more .ask-question-btn,
+.kb-show-more .create-article-btn {
+  color: white; /* Set additional text/buttons to white */
+}
+
+
+
+.kb-tile .link-icon .fa-book {
+  font-size: 50px; /* Adjust icon size */
+  color: #FF8F00; /* Set the icon color */
+}
+
+/* Center the icon within the link-icon container if necessary */
+.kb-tile .link-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.switch {
+margin-left: 6px; /* Optional: Add a bit of space if needed */
+}
+.toggle-wrapper {
+display: flex;
+justify-content: center; /* Center the entire block */
+align-items: center; /* Align the text and toggle in the same line */
+}
+
+.kb-show-more .toggle-label {
+font-size: 16px; /* Adjust font size */
+margin-right: 6px;
+Margin-bottom:2px;
+}
+.kb-tile-block {
+  flex: 1 1 23%; // Ensures tiles take up 23% width for a 4-column layout
+  max-width: 23%;
+  box-sizing: border-box;
+  min-width: 200px;
+  margin: 10px;
+}
+
+/* Custom Button Styles */
+.ask-question-btn {
+  background-color: #00172C;
+  color: #FFFFFF;
+  border-radius: 12px;
+  padding: 6px 20px; 
+  border: 1px solid #00172C;
+  font-size: 15px;
+  font-weight: 1;
+}
+
+.ask-question-btn:hover,
+.ask-question-btn:focus {
+  background-color: #00233A; 
+  outline: none;
+}
+
+.create-article-btn {
+  background-color: #FFFFFF;
+  color: #000000;
+  border-radius: 12px;
+  padding: 6px 20px; 
+  border: 1px solid #000000;
+  font-size: 15px;
+  font-weight: 1;
+}
+
+.create-article-btn:hover,
+.create-article-btn:focus {
+  background-color: #F0F0F0; 
+  outline: none;
+}
+.kb-show-more {
+  padding-bottom: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.kb-tile::after,
+.kb-tile::before {
+  content: "";
+  display: none; // Completely hide these pseudo-elements
+  background-color: transparent;
+}
+
+.kb-bottom {
+  background-color: #004B8D !important; // Match the tile background color
+  padding: 0 !important; // Remove padding to avoid any space
+  margin: 0 !important; // Remove margin to ensure no extra space
+  height: 0 !important; // Collapse the height to remove any visible line
+  border: none !important; // Remove any potential border
+  box-shadow: none !important; // Remove any shadow
+}
+
+
+.switch {
+position: relative;
+display: inline-block;
+width: 40px; /* Smaller width */
+height: 20px; /* Smaller height */
+}
+
+.switch input {
+opacity: 0;
+width: 0;
+height: 0;
+}
+
+.slider {
+position: absolute;
+cursor: pointer;
+top: 0;
+left: 0;
+right: 0;
+bottom: 0;
+background-color: #ccc;
+transition: .4s;
+border-radius: 20px; /* Smaller border-radius */
+}
+
+.slider:before {
+position: absolute;
+content: "";
+height: 14px; /* Smaller height */
+width: 14px; /* Smaller width */
+left: 3px;
+bottom: 3px;
+background-color: white;
+transition: .4s;
+border-radius: 50%;
+}
+
+/* Checked state for movement */
+input:checked + .slider {
+background-color: #FFA300;
+}
+
+/* Move the toggle when checked */
+input:checked + .slider:before {
+transform: translateX(20px); /* Adjust translation based on the size of the toggle */
+}

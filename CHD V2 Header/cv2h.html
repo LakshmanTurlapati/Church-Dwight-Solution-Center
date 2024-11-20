@@ -1,0 +1,117 @@
+<!-- Modified Employee Center Header (cv2h.html) -->
+
+<!-- Upper scrolling marquee (from the old header) -->
+<div class="scrolling-marquee">
+  <marquee behavior="scroll" direction="left">
+    <span>INC0526028 | SAP Transaction CO88 not running....</span>
+    <span>INC0528905 | WMS | Blocked for security.....</span>
+    <span>INC0514376 | Self Hosted IR.....</span>
+  </marquee>
+</div>
+
+<!-- Main Navigation Bar -->
+<nav class="navbar-inverse" aria-label="Primary" role="navigation" ng-if="!showViewAsHeader">
+    <div class="clearfix header-container">
+      
+      <!-- Left Navigation Section -->
+      <div class="navbar-header nav-container">
+        <div class="nav-left">
+          <ul class="nav navbar-nav">
+            
+            <!-- Hamburger Menu -->
+            <li class="gt-menu-item" role="presentation">
+              <a href="javascript:void(0);" class="icon" onclick="toggleHamburgerMenu()">
+                <div class="hamburger-icon">
+                  <div class="bar1"></div>
+                  <div class="bar2"></div>
+                  <div class="bar3"></div>
+                </div>
+              </a>
+            </li>
+            
+            <!-- Home Link -->
+            <li class="gt-menu-item" role="presentation">
+              <a href="?id={{::portal.homepage_dv}}" ng-class="getClass('?id=hrm_todos_page')" id="home_link" aria-label="Home" role="menuitem">
+                <span>Home</span>
+              </a>
+            </li>
+
+            <!-- Search Bar -->
+            <li class="gt-menu-item search-bar-item">
+              <form class="search-container" ng-submit="c.submitSearch($event)">
+                <input type="text" placeholder="Search" class="search-input" autocomplete="off" ng-model="c.searchTerm" />
+                <button type="submit" class="search-button" title="Search" aria-label="Search">
+                  <i class="fa fa-search"></i>
+                </button>
+              </form>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Center Logo Section -->
+        <div class="logo-container">
+          <a class="navbar-brand navbar-brand-logo" ng-if="::portal.logo" href="?id={{::portal.homepage_dv}}" aria-label="{{::portal.title}} - Home Page">
+            <img ng-src="{{::portal.logo}}" alt="{{::portal.title}} - Home Page"/>
+          </a>
+        </div>
+
+        <!-- Right Navigation Section -->
+        <div class="nav-right">
+          <ul class="nav navbar-nav">
+            <!-- Favorites -->
+            <li class="gt-menu-item" role="presentation" ng-if="data.isFavoritesEnabled">
+              <a href="?id=favorites_list" id="favorites" aria-label="Favorites">
+                <i class="fa fa-heart"></i> Favorites
+              </a>
+            </li>
+            
+            <!-- Cart -->
+            <li class="gt-menu-item" role="presentation">
+              <a href="#cart" aria-label="Cart">
+                <i class="fa fa-shopping-cart"></i> Cart
+              </a>
+            </li>
+            
+            <!-- User Profile Dropdown -->
+            <li class="avatar-drop-down gt-menu-item dropdown">
+              <a href="#" class="toggle-dropdown" data-toggle="dropdown" aria-expanded="true" title="User options">
+                <span class="navbar-avatar">
+                  <div class="avatar-container" title="User Initials">
+                    <div class="avatar">{{user_initials}}</div>
+                  </div>
+                </span>
+                <i class="fa fa-caret-down"></i>
+              </a>
+              <ul class="dropdown-menu">
+                <li><a href="#profile">Profile</a></li>
+                <li><a href="#impersonate">Impersonate</a></li>
+                <li><a href="#logout">Logout</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Hidden Hamburger Menu Items (shown when toggled) -->
+    <div id="hamburgerMenu" class="hamburger-menu-content">
+      <ul>
+        <li><a href="#"><i class="fa fa-tasks"></i> My Requests</a></li>
+        <li><a href="#"><i class="fa fa-exclamation-circle"></i> My Incidents</a></li>
+        <li><a href="#"><i class="fa fa-cog"></i> Settings</a></li>
+        <li><a href="#"><i class="fa fa-sign-out"></i> Log Out</a></li>
+      </ul>
+    </div>
+</nav>
+
+<!-- Script to toggle Hamburger Menu visibility -->
+<script>
+  function toggleHamburgerMenu() {
+    var x = document.getElementById("hamburgerMenu");
+    if (x.style.display === "block") {
+      x.style.display = "none";
+    } else {
+      x.style.display = "block";
+    }
+  }
+</script>
